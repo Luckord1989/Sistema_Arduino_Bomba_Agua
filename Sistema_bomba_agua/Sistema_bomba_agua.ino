@@ -1,6 +1,13 @@
 //Variables globales 
+
 //Establecemos la constante para el uso de un pin para bomba de agua
 const int bomba_de_agua = 14;
+
+//Establecemos las constante de tiempo 
+//Tiempo de encendido
+const int tiempo_encendido = 3600000;
+//Tiempo de apagado
+const int tiempo_apagado = 82800000;
 
 void setup() {
   // put your setup code here, to run once:
@@ -17,6 +24,7 @@ void loop() {
   //Apagamod el motor
   apagar_motor();
 }
+
 //Metodos de funcionamiento del sistema
 //Metodo de encendido del motor
 void encender_motor(){
@@ -25,7 +33,7 @@ void encender_motor(){
   //Mostramos un mensaje de encendido del motor
   Serial.println("Motor ha sido encendido con exito!!");
   //Establecemos un tiempo de espera
-  delay(3600000);
+  delay(tiempo_encendido);
 }
 //Metodo de apagado del motor
 void apagar_motor(){
@@ -34,5 +42,5 @@ void apagar_motor(){
   //Mostramos un mensaje de apagado del motor
   Serial.println("Motor ha sido apagado con exito!!");
   //Establecemos el tiempo de espera
-  delay(82800000); 
+  delay(tiempo_apagado); 
 }
