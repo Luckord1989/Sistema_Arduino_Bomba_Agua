@@ -1,7 +1,11 @@
+//Variables globales 
+//Establecemos la constante para el uso de un pin para bomba de agua
+const int bomba_de_agua = 14;
+
 void setup() {
   // put your setup code here, to run once:
   // Establecemos el Pin donde se realizara el encendido y apagado del contactor
-  pinMode(13,OUTPUT);
+  pinMode(bomba_de_agua,OUTPUT);
   Serial.begin(9600);
   Serial.println("Inicio de Sistema de Bomba de agua");
 }
@@ -17,7 +21,7 @@ void loop() {
 //Metodo de encendido del motor
 void encender_motor(){
   //Encendemos el motor
-  digitalWrite(13,HIGH); 
+  digitalWrite(bomba_de_agua,HIGH); 
   //Mostramos un mensaje de encendido del motor
   Serial.println("Motor ha sido encendido con exito!!");
   //Establecemos un tiempo de espera
@@ -26,7 +30,7 @@ void encender_motor(){
 //Metodo de apagado del motor
 void apagar_motor(){
   //Apagamos el motor
-  digitalWrite(13,LOW);
+  digitalWrite(bomba_de_agua,LOW);
   //Mostramos un mensaje de apagado del motor
   Serial.println("Motor ha sido apagado con exito!!");
   //Establecemos el tiempo de espera
