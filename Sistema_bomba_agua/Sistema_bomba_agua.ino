@@ -2,6 +2,7 @@
 
 //Establecemos la constante para el uso de un pin para bomba de agua
 const int bomba_de_agua = 14;
+const int led_arduino = 13;
 
 //Establecemos las constante de tiempo 
 //Tiempo de encendido
@@ -13,6 +14,8 @@ void setup() {
   // put your setup code here, to run once:
   // Establecemos el Pin donde se realizara el encendido y apagado del contactor
   pinMode(bomba_de_agua,OUTPUT);
+  // Pin de señal arduino
+  pinMode(led_arduino, OUTPUT);
   Serial.begin(9600);
   Serial.println("Inicio de Sistema de Bomba de agua");
 }
@@ -30,6 +33,7 @@ void loop() {
 void encender_motor(){
   //Encendemos el motor
   digitalWrite(bomba_de_agua,HIGH); 
+  digitalWrite(led_arduino,HIGH);
   //Mostramos un mensaje de encendido del motor
   Serial.println("Motor ha sido encendido con exito!!");
   //Establecemos un tiempo de espera
@@ -39,6 +43,7 @@ void encender_motor(){
 void apagar_motor(){
   //Apagamos el motor
   digitalWrite(bomba_de_agua,LOW);
+  digitalWrite(led_arduino,LOW);
   //Mostramos un mensaje de apagado del motor
   Serial.println("Motor ha sido apagado con exito!!");
   //Establecemos el tiempo de espera
